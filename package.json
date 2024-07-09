@@ -1,4 +1,5 @@
 {
+    "homepage": "http://dpansubansal.github.io/fr",
     "name": "amazon-kinesis-video-streams-webrtc",
     "version": "2.2.0",
     "description": "Amazon Kinesis Video Streams WebRTC SDK for JavaScript.",
@@ -16,6 +17,8 @@
         "NOTICE.txt"
     ],
     "scripts": {
+        "predeploy":"npm run build",
+        "deploy":"gh-pages -d build",
         "integ-server": "ws -p 3000",
         "test": "jest --runInBand",
         "test-watch": "jest --watch",
