@@ -18,11 +18,11 @@
     ],
     "scripts": {
         "predeploy": "npm run build-all",
-        "deploy": "gh-pages -d build-all",
+        "deploy": "gh-pages -d dist",
         "integ-server": "ws -p 3000",
         "test": "jest --runInBand",
         "test-watch": "jest --watch",
-        "build-all": "npm run build-commonjs && npm run build-debug && npm run build-dist  && npm run copy-examples-to-dist-win",
+        "build-all": "npm run build-commonjs && npm run build-debug && npm run build-dist",
         "build-commonjs": "tsc -p tsconfig.json",
         "build-debug": "webpack --config webpack.debug.config.js",
         "build-dist": "webpack --config webpack.dist.config.js",
@@ -30,7 +30,8 @@
         "copy-examples-to-dist-win": "xcopy examples dist /E /I /H",
         "start": "webpack-dev-server --config webpack.dev.config.js",
         "lint": "eslint 'src/**/*.{js,ts}'",
-        "release": "npm run lint && npm run test && npm run build-all && npm run copy-examples-to-dist"
+        "release": "npm run lint && npm run test && npm run build-all && npm run copy-examples-to-dist-win",
+        "postinstall": "webpack -p"
     },
     "author": "Divya Sampath Kumar <divku@amazon.com>",
     "license": "Apache-2.0",
